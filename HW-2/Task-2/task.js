@@ -1,47 +1,20 @@
 let middleNode = function(head) {
-    let linkedList = {
-        length: 0,
-        node: {},
-    };
-    function Node(value=0,nextElem=null){
-        this.value = value;
-        this.nextElem = nextElem;
-    };
-    function addElemToLL(linkedList,value){
-        let node = new Node(value);
-        let currentNode = linkedList.node;
-        if(linkedList.length===0){
-            linkedList.node = node;
-            linkedList.length++;
-            return node;
-        }
-        else{
-            while(currentNode.nextElem){
-                currentNode = currentNode.nextElem;
-            }
-            currentNode.nextElem = node;
-            linkedList.length++;
-            return node;
-        }
-    };
-    function searchItemInLL(linkedList,index){
-        let currentNode = linkedList.node;
-        let counter=0;
-        while(counter!==index){
-            currentNode = currentNode.nextElem;
-            counter++;
-        }
-        return currentNode;
+    let length = 0;
+    let indexOfMiddleNode;
+    let currentElem = head;
+    while(currentElem){
+        length++;
+        currentElem = currentElem.next;
     }
-    addElemToLL(linkedList,head);
-    for(let i = 1; i<head.length; i++){
-        addElemToLL(linkedList,[...head].slice(i));
-    }
-    if(linkedList.length%2===0){
-        return searchItemInLL(linkedList,linkedList.length/2).value;
+    if(length%2===0){
+        indexOfMiddleNode = length/2;
     }
     else{
-        return searchItemInLL(linkedList,(linkedList.length-1)/2).value;
+        indexOfMiddleNode = (length-1)/2;
     }
+    let middle = head;
+    for(let i = 0; i<indexOfMiddleNode; i++){
+        middle = middle.next;
+    }
+    return middle;
 };
-console.log(middleNode([1,2,3,4,5]));
