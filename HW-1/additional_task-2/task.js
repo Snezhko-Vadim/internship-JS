@@ -1,7 +1,10 @@
 let isPalindrome = function(s) {
-  let regexp = /\w/g;
+  let regexp = /[0-9a-z]/ig;
   let numOfIt;
   arrOfLetters = s.match(regexp);
+  if(arrOfLetters === null){
+    return true;
+  }
   if(arrOfLetters.length%2===0){
     numOfIt=arrOfLetters.length/2;
   }
@@ -15,4 +18,3 @@ let isPalindrome = function(s) {
   }
   return true;
 };
-console.log(isPalindrome("A man, a plan, a canal: Panama"));

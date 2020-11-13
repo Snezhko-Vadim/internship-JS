@@ -1,12 +1,11 @@
 let findPeakElement = function(nums) {
-    let peakElemPos = [];
-    let prevElem = nums[0];
-    for(let i = 1; i<nums.length-1; i++){
-        if(nums[i]>nums[i+1] && nums[i]>prevElem){
-            peakElemPos.push(i);
+    let peakElemIndex = 0;
+    for(let i = 0; i<nums.length-1;){
+        if(nums[i]<nums[i+1]){
+            peakElemIndex = i+1;
+            i++
         }
-        prevElem=nums[i];
+        else return i;
     }
-    return peakElemPos;
+    return peakElemIndex;
 };
-console.log(findPeakElement([1,2,1,3,5,6,4]));

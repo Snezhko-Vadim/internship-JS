@@ -1,6 +1,5 @@
 function printArray(array){
-    let str = array.join(',');
-    return str;
+    return array.join(',');
   }
 let arr = ["h","o","l","a"];
 console.log(printArray(arr));

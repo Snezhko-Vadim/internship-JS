@@ -1,5 +1,5 @@
 let reverseVowels = function(s) {
-    let vowels = 'aeiouy';
+    let vowels = 'aeiouyAEIOUY';
     let vowelsInS =[];
     let vowelsIndexInS =[];
     for(let i = 0; i<s.length; i++){
@@ -31,5 +31,5 @@ let reverseVowels = function(s) {
     return s;
 };
 
-let s ='leetcode';
+let s ='aA';
 console.log(reverseVowels(s));
