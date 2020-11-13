@@ -9,7 +9,9 @@ let deleteDuplicates = function(head) {
         else if(!currentElem.next){
             break;
         }
-        currentElem = currentElem.next;
+        else{
+            currentElem = currentElem.next;
+        }
     }
     return head;
 };

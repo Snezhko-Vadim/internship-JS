@@ -10,5 +10,5 @@ let detectCycle = function(head) {
         }
         currentElem = currentElem.next;
     }
-    return 0;
+    return null;
 };

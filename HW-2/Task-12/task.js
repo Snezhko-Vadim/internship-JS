@@ -16,8 +16,14 @@ let lastStoneWeight = function(stones) {
     }
     const stonesCollision = (stones, index_1, index_2) => {
         if(stones[index_1]===stones[index_2]){
-            stones.splice(index_1,1);
-            stones.splice(index_2,1);
+            if(index_2<index_1){
+                stones.splice(index_1,1);
+                stones.splice(index_2,1);
+            }
+            else{
+                stones.splice(index_2,1);
+                stones.splice(index_1,1);
+            }
         }
         else if((stones[index_1]-stones[index_2])>0){
             stones[index_1] = stones[index_1] - stones[index_2];
@@ -28,8 +34,13 @@ let lastStoneWeight = function(stones) {
             stones.splice(index_1,1);
         }
     }
-    while(stones.length!==1){
+    while(stones.length>1){
         stonesCollision(stones,maxWeightStones(stones)[0],maxWeightStones(stones)[1]);
     }
-    return stones[0];
+    if(stones.length === 0){
+        return 0;
+    }
+    else{
+        return stones[0];
+    }
 };

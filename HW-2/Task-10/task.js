@@ -13,4 +13,5 @@ let firstUniqChar = function(s) {
             return s.indexOf(letterRepeats);
         }
     }
+    return -1;
 };
